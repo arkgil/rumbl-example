@@ -1,17 +1,11 @@
-# Rumbl
+# Rumbl, monitored
 
-Setup:
+Rumbl, example Phoenix application, instrumented with [Telemetry](https://github.com/beam-telemetry).
 
-  * Install dependencies with `mix deps.get`
-  * Create, migrate, and seed the database with `mix ecto.reset`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+## Setup
 
-Now you can visit [`localhost:4000/sessions/new`](http://localhost:4000/sessions/new) and sign in with the seed user
-
-  * email: `"user1@example.com"`
-  * password: `"password"`
-
-From there, you can visit the seed video:
-http://localhost:4000/watch/1-elixir-documentary
-
+```bash
+mix deps.get
+docker-compose up -d
+mix ecto.setup
+```

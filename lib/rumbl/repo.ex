@@ -1,5 +1,5 @@
 defmodule Rumbl.Repo do
-  use Ecto.Repo, otp_app: :rumbl
+  use Ecto.Repo, otp_app: :rumbl, adapter: Ecto.Adapters.Postgres
 
   @doc """
   Dynamically loads the repository url from the
