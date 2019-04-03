@@ -9,15 +9,19 @@ services:
       - "5432:5432"
     volumes:
       - "./volumes/postgres:/var/lib/postgresql/data"
-  graphite_statsd:
-    image: graphiteapp/graphite-statsd
-    ports:
-      - "8080:80"
-      - "2003:2003"
-      - "8126:8126"
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:6.1.0
     ports:
       - "3000:3000"
     volumes:
       - "./volumes/grafana:/var/lib/grafana"
+  telegraf:
+    image: telegraf:1.8.3
+    ports:
+      - "8125:8125/udp"
+    volumes:
+      - "./volumes/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro"
+  influxdb:
+    image: influxdb:1.5.4
+    volumes:
+      - "./volumes/influxdb:/var/lib/influxdb"
