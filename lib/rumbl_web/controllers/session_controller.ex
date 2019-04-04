@@ -5,23 +5,17 @@ defmodule RumblWeb.SessionController do
     render(conn, "new.html")
   end
 
-  def create(conn, %{"session" => %{"email" => email, "password" => pass}}) do
+  def create(conn, %{"email" => email, "password" => pass}) do
     case RumblWeb.Auth.login_by_email_and_pass(conn, email, pass) do
-      {:ok, conn} ->
+      {:ok, token} ->
         conn
-        |> put_flash(:info, "Welcome back!")
-        |> redirect(to: Routes.page_path(conn, :index))
+        |> put_status(:created)
+        |> json(%{token: token})
 
-      {:error, _reason, conn} ->
+      {:error, _reason} ->
         conn
-        |> put_flash(:error, "Invalid email/password combination")
-        |> render("new.html")
+        |> put_status(401)
+        |> json(%{error: "Invalid email/password combination"})
     end
-  end
-
-  def delete(conn, _) do
-    conn
-    |> RumblWeb.Auth.logout()
-    |> redirect(to: Routes.page_path(conn, :index))
   end
 end

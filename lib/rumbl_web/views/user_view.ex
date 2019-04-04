@@ -8,7 +8,11 @@ defmodule RumblWeb.UserView do
     |> Enum.at(0)
   end
 
-  def render("user.json", %{user: user}) do
-    %{id: user.id, username: user.username}
+  def render("index.json", %{users: users}) do
+    render_many(users, __MODULE__, "show.json")
+  end
+
+  def render("show.json", %{user: user}) do
+    %{id: user.id, username: user.username, name: user.name}
   end
 end
