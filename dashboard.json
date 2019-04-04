@@ -1333,7 +1333,7 @@
       }
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 18,
   "style": "dark",
   "tags": [],
@@ -1341,8 +1341,8 @@
     "list": []
   },
   "time": {
-    "from": "now-15m",
-    "to": "now"
+    "from": "2019-04-04T15:44:00.000Z",
+    "to": "2019-04-04T15:57:01.000Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1372,5 +1372,5 @@
   "timezone": "",
   "title": "Rumbl",
   "uid": "naswmYemz",
-  "version": 33
+  "version": 42
 }
