@@ -4,7 +4,7 @@ defmodule RumblWeb.Auth do
   alias Rumbl.Accounts
 
   @salt "user"
-  @token_max_age 10 * 60
+  @token_max_age 60
 
   def init(opts), do: opts
 
