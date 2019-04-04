@@ -4,7 +4,11 @@ defmodule Rumbl.Metrics do
   import Telemetry.Metrics
 
   def child_spec(_) do
-    metrics = vm_metrics() ++ http_metrics() ++ controller_metrics() ++ db_metrics()
+    metrics =
+      vm_metrics() ++
+        http_metrics() ++
+        controller_metrics() ++
+        db_metrics()
 
     TelemetryMetricsStatsd.child_spec(
       metrics: metrics,
@@ -25,7 +29,9 @@ defmodule Rumbl.Metrics do
 
   defp http_metrics() do
     [
-      counter("http.requests.count", event_name: "rumbl.endpoint.start"),
+      counter("http.requests.count",
+        event_name: "rumbl.endpoint.start"
+      ),
       counter("http.responses.count",
         event_name: "rumbl.endpoint.stop",
         tags: [:status],
@@ -60,7 +66,10 @@ defmodule Rumbl.Metrics do
 
   defp db_metrics() do
     [
-      counter("db.query.count", event_name: "rumbl.repo.query", tags: [:source]),
+      counter("db.query.count",
+        event_name: "rumbl.repo.query",
+        tags: [:source]
+      ),
       distribution("db.query.total_time",
         event_name: "rumbl.repo.query",
         tags: [:source],
