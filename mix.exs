@@ -41,7 +41,6 @@ defmodule Rumbl.Mixfile do
       {:pbkdf2_elixir, "~> 0.12"},
 
       ## telemetry
-      {:telemetry, "~> 0.4"},
       {:telemetry_poller, "~> 0.3"},
       {:telemetry_metrics, "~> 0.2"},
       {:telemetry_metrics_statsd, "~> 0.1"}
