@@ -8,7 +8,7 @@ defmodule Load.Coordinator do
         [interval]
       )
 
-      Process.sleep(:rand.uniform(5000))
+      Process.sleep(:rand.uniform(10000))
     end
   end
 end
