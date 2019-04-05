@@ -6,9 +6,9 @@ defmodule Rumbl.Application do
   def start(_type, _args) do
     children = [
       Rumbl.Repo,
-      Rumbl.Metrics,
       RumblWeb.Endpoint,
       RumblWeb.Presence,
+      Rumbl.Metrics
     ]
 
     opts = [strategy: :one_for_one, name: Rumbl.Supervisor]
