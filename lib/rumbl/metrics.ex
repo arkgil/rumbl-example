@@ -22,8 +22,8 @@ defmodule Rumbl.Metrics do
       last_value("vm.memory.processes_used"),
       last_value("vm.memory.ets"),
       last_value("vm.memory.binary"),
+
       last_value("vm.total_run_queue_lengths.cpu"),
-      last_value("vm.total_run_queue_lengths.io")
     ]
   end
 
