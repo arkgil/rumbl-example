@@ -41,8 +41,7 @@ defmodule Rumbl.Metrics do
         event_name: "rumbl.endpoint.stop",
         tags: [:status],
         tag_values: &http_response_tags/1,
-        unit: {:native, :millisecond},
-        buckets: [0, 100, 200]
+        unit: {:native, :millisecond}
       )
     ]
   end
@@ -58,8 +57,7 @@ defmodule Rumbl.Metrics do
         event_name: "phoenix.controller.call.stop",
         tags: [:controller, :action, :status],
         tag_values: &controller_tags/1,
-        unit: {:native, :millisecond},
-        buckets: [0, 100, 200]
+        unit: {:native, :millisecond}
       )
     ]
   end
@@ -73,8 +71,7 @@ defmodule Rumbl.Metrics do
       distribution("db.query.total_time",
         event_name: "rumbl.repo.query",
         tags: [:source],
-        unit: {:native, :millisecond},
-        buckets: [0, 100, 200]
+        unit: {:native, :millisecond}
       )
     ]
   end
