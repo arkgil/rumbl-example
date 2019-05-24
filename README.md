@@ -7,7 +7,7 @@ Rumbl, example Phoenix application, instrumented with [Telemetry](https://github
 ```bash
 mix deps.get
 docker-compose up -d
-mix ecto.setup
+MIX_ENV=prod mix ecto.setup
 ```
 
 Go to [http://localhost:3000](http://localhost:3000) in your browser and upload the Grafana dashboard
